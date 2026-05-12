@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "PlatformIO: Clean",
+			"type": "shell",
+			"command": "platformio",
+			"args": [
+				"run",
+				"--target",
+				"clean"
+			]
+		},
+		{
+			"label": "PlatformIO: Build",
+			"type": "shell",
+			"command": "platformio",
+			"args": [
+				"run"
+			]
+		},
+		{
+			"label": "PlatformIO: Upload",
+			"type": "shell",
+			"command": "platformio",
+			"args": [
+				"run",
+				"--target",
+				"upload"
+			]
+		},
+		{
+			"label": "PlatformIO: Monitor",
+			"type": "shell",
+			"command": "platformio",
+			"args": [
+				"device",
+				"monitor"
+			],
+			"isBackground": true
+		}
+	]
+}

@@ -11,11 +11,32 @@ PlatformIO samples for TTGO T-Display v1.1 (ESP32, ST7789 135x240).
 - Monitor serial:
   - `platformio device monitor`
 
-Current default environment in `platformio.ini` is `racing_sample`.
+Current default environment in `platformio.ini` is `snake`.
 
 ## Samples
 
-### racing_sample (default)
+### snake (default)
+
+Snake with continuous circular movement on a wrapping playfield.
+
+- Display: portrait mode, 135x220 playfield below the score bar
+- Either button (GPIO0 or GPIO35): reverse angular velocity on each press
+- Holding a button does not repeat the turn; release and press again
+- Movement speed and turn radius stay constant (23 pixels)
+- Cross any edge to appear on the opposite side, including food and body collisions
+- Collect orange food to grow; hitting your own body ends the game
+- Press either button after game over to restart
+- A new best score is saved to ESP32 NVS at game over or victory and restored
+  after restart or power loss; scores from unfinished games are not saved
+- Battery icon and estimated charge percentage in the top bar (GPIO34 ADC,
+  divider enabled via GPIO14); averaged and smoothed readings every 1.5 seconds
+- Battery icon is red at 20% or less, yellow up to 50%, green above 50%
+
+Build or upload this sample explicitly:
+- `platformio run -e snake`
+- `platformio run -e snake --target upload`
+
+### racing_sample
 
 Top-down portrait racing game inspired by classic brick games.
 
